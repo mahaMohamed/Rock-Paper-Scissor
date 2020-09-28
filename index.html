@@ -1,4 +1,5 @@
 <html>
+
 <head>
 
     <title>Rock, Paper, Scissor</title>
@@ -6,91 +7,96 @@
 
 <body>
 
-  
+    <script>
 
-  <script>
-    
+        function computerPlay() {
 
-
-
-    function computerPlay(){
-
-        let randomNumber = Math.floor((Math.random() * 10) + 1);
+            let randomNumber = Math.floor((Math.random() * 3));
 
 
-        let computerSelection = (randomNumber >= 1 && randomNumber < 4) ? "Rock":
-                            (randomNumber >= 4 && randomNumber < 7)? "Paper" : 
-                            "Scissor";
-        // console.log ("computer selects " + computerSelection);
-        return computerSelection;
+            let computerSelection = (randomNumber == 0) ? "Rock" :
+                (randomNumber == 1) ? "Paper" :
+                    "Scissor";
 
-    }
+            return computerSelection;
 
-
-    function playRound (computerSelection , playerSelection){
-
-
-        if  (computerSelection == playerSelection)
-           return  "Tie";
-
-        else if (computerSelection == "Rock" && playerSelection == "Scissor") 
-            return "You Lose! Rock beats Scissors"; 
-
-        else if (computerSelection == "Rock" && playerSelection == "Paper")
-            return "You win! Paper beats Rock";
-        
-       else if (computerSelection == "Paper" && playerSelection == "Rock")
-            return "You lose! Paper beats Rock";
-
-        else if (computerSelection == "Paper" && playerSelection == "Scissor")
-            return "You win! Scissors beat paper";
-        
-        else if (computerSelection == "Scissor" && playerSelection == "Rock")
-            return "You win! Rock beats Scissors";
-        
-        else if (computerSelection == "Scissor" && playerSelection == "Paper")
-            return "You lose! Scissors beat Paper";
-        
-        
-
-    }
-
-    function game(){
-        let computerWins = 0; 
-        let playerWins = 0; 
-
-        for (let i=0; i<2; i++){
-
-            let playerSelection = window.prompt("What do you choose? Rock, Paper or Scissor");
-            let computerSelection  = computerPlay(); 
-            alert("Computer chose " + computerSelection + "\n" + 
-                "You choose " + playerSelection);
-            let roundResult = playRound(computerSelection, playerSelection);
-            alert(roundResult);
-             (roundResult.includes("win")) ?  playerWins++ : computerWins++;
-            
         }
 
-        console.log(playerWins);
 
-        if (computerWins == playerWins)
-            alert ("Tie!");
-        else if (computerWins > playerWins)
-            alert("You lose!"); 
-        else alert ("You win!");
-    
-    }
-
-    // const playerSelection = "Paper"; 
-    // const computerSelection = computerPlay(); 
-    // console.log("You select Paper");
-    // console.log(playRound(computerSelection, playerSelection));
-    game();
+        function playRound(computerSelection, playerSelection) {
 
 
-  </script>
+            if (computerSelection == playerSelection)
+                return "Tie";
 
- 
+
+            else if (computerSelection == "Rock" && playerSelection == "Paper")
+                return "You win! Paper beats Rock";
+
+            else if (computerSelection == "Paper" && playerSelection == "Scissor")
+                return "You win! Scissors beat paper";
+
+            else if (computerSelection == "Scissor" && playerSelection == "Rock")
+                return "You win! Rock beats Scissors";
+
+            else if (computerSelection == "Scissor" && playerSelection == "Paper")
+                return "You lose! Scissors beat Paper";
+
+            else if (computerSelection == "Paper" && playerSelection == "Rock")
+                return "You lose! Paper beats Rock";
+
+            else if (computerSelection == "Rock" && playerSelection == "Scissor")
+                return "You Lose! Rock beats Scissors";
+
+
+
+        }
+
+        function capitalizeFirstLetter(string) {
+            return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+        }
+
+
+        function game() {
+            let computerWins = 0;
+            let playerWins = 0;
+
+            for (let i = 0; i < 5; i++) {
+
+                let playerSelection = window.prompt("What do you choose? Rock, Paper or Scissor");
+                playerSelection = capitalizeFirstLetter(playerSelection);
+
+                let computerSelection = computerPlay();
+
+                alert("Computer chose " + computerSelection + "\n" +
+                    "You choose " + playerSelection);
+
+                let roundResult = playRound(computerSelection, playerSelection);
+
+                alert(roundResult);
+
+                (roundResult.includes("win")) ? playerWins++ : computerWins++;
+
+            }
+
+            alert("Computer Score: " + computerWins + "\n Your Score: " +
+                playerWins + "\n")
+
+            if (computerWins == playerWins)
+                alert("Tie!");
+            else if (computerWins > playerWins)
+                alert(" You lose!");
+            else alert("You win!");
+
+        }
+
+
+        game();
+
+
+    </script>
+
+
 
 </body>
 
