@@ -35,7 +35,6 @@ function playGame(e) {
     console.log(computerSelection);
     computerMove.style = "opacity: 0";
 
-/*e*/ 
 
     let computerImage = computerSelection + ".png";
     computerMove.setAttribute("src", computerImage);
@@ -101,7 +100,7 @@ function computerPlay() {
     let randomNumber = Math.floor(Math.random() * 3);
 
     let computerSelection =
-        randomNumber == 0 ? "Rock" : randomNumber == 1 ? "Paper" : "Scissor";
+        randomNumber == 0 ? "rock" : randomNumber == 1 ? "paper" : "scissor";
 
     return computerSelection;
 }
