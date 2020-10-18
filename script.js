@@ -1,10 +1,12 @@
 
 /*Initializing Variables*/
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll("img");
 let playerSelection;
 let roundResult;
 let computerWins = 0;
 let playerWins = 0;
+
+console.log(buttons.length);
 
 const computerMove = document.querySelector("#computer-move");
 const playerMove = document.querySelector("#player-move");

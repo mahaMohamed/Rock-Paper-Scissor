@@ -1,0 +1,49 @@
+
+@font-face { font-family: Game; src: url('game_font_7.ttf'); } 
+
+
+.play-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 80%; */
+    margin: auto;
+    width: 50%;
+    /* order: 5; */
+    align-self: flex-end;
+  
+}
+img{
+
+    width: 150px; 
+    height: 150px; 
+    margin: 20px;
+    padding: 20px;
+    transition: transform .2s;
+
+}
+
+
+h1{
+    font-family: Game;
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+    color: #4e6470;
+}
+
+img:hover{
+    transform: scale(1.25);
+    filter: brightness(105%)
+    /* opacity: .5; */
+}
+
+
+
+.game-container{
+
+    display: flex;
+    flex-direction: column;
+    /* background-color: blue; */
+
+}
