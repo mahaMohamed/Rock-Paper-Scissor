@@ -1,6 +1,6 @@
 
 /*Initializing Variables*/
-const buttons = document.querySelectorAll("img");
+const buttons = document.querySelectorAll(".play-buttons img");
 let playerSelection;
 let roundResult;
 let computerWins = 0;
@@ -10,10 +10,12 @@ console.log(buttons.length);
 
 const computerMove = document.querySelector("#computer-move");
 const playerMove = document.querySelector("#player-move");
-const roundResultDisplay = document.querySelector("#round-result");
+const roundResultDisplay = document.querySelector(".message-board");
 const finalResult = document.querySelector("#final-result");
 const playerScore = document.querySelector("#player-score");
 const computerScore = document.querySelector("#computer-score");
+
+
 
 /*Adding Event Listeners*/
 for (let i = 0; i < buttons.length; i++)
@@ -22,46 +24,71 @@ for (let i = 0; i < buttons.length; i++)
 /*Contains the game logic*/
 function playGame(e) {
 
-    playerSelection = capitalizeFirstLetter(e.target.id);
+
+    playerSelection = e.target.id;
+    let playerImage = playerSelection + ".png"
+    playerMove.setAttribute("src", playerImage);
+    playerMove.style = "opacity: 1";
+
 
     let computerSelection = computerPlay();
+    console.log(computerSelection);
+    computerMove.style = "opacity: 0";
 
-    playerMove.innerText = "Player's Move: " + playerSelection;
 
-    computerMove.innerText = "Computer's Move: " + computerSelection;
 
-    roundResult = playRound(computerSelection, playerSelection);
+    let computerImage = computerSelection + ".png";
+    computerMove.setAttribute("src", computerImage);
+    computerMove.style = "opacity: 1";
+
+
+
+
+    roundResult = playRound(capitalizeFirstLetter(computerSelection), capitalizeFirstLetter(playerSelection));
 
     roundResultDisplay.innerText = roundResult;
 
+
     if (roundResult.includes("win")) {
         playerWins++;
-    } else if (roundResult.includes("Tie")) {
-        playerWins++;
-        computerWins++;
-    } else {
+    } else if (roundResult.includes("lose")) {
         computerWins++;
     }
 
-    playerScore.innerText = "Your Score : " + playerWins;
-    computerScore.innerText = "Computer's Score : " + computerWins;
+    playerScore.textContent = playerWins;
+    document.querySelector("#computer-score").textContent = computerWins;
 
-    
+
+
 
     /*Game is terminated once a player scores 5 points*/
     if (computerWins == 5 && playerWins <= 5) {
-        playerWins < 5
-            ? (finalResult.innerText = "You lost!")
-            : (finalResult.innerText = "Tie");
+        if (playerWins < 5) {
+            roundResultDisplay.innerHTML = "You lost! <br> Refresh the page to start a new game";
+            roundResultDisplay.style = "color: red"
+        }
+        else {
+            roundResultDisplay.innerHTML = "You tied! Refresh the page to start a new game";
+            // roundResultDisplay.style = "color: red"
+
+
+        }
 
         for (let i = 0; i < buttons.length; i++)
             buttons[i].removeEventListener("click", playGame);
     }
 
     if (playerWins == 5 && computerWins <= 5) {
-        computerWins < 5
-            ? (finalResult.innerText = "You won!")
-            : (finalResult.innerText = "Tie");
+        if (computerWins < 5) {
+            roundResultDisplay.innerHTML = "You won! <br> Refresh the page to start a new game";
+            roundResultDisplay.style = "color: green"
+
+
+        }
+        else {
+            roundResultDisplay.innerHTML = "You tied! Refresh the page to start a new game";
+
+        }
 
         for (let i = 0; i < buttons.length; i++)
             buttons[i].removeEventListener("click", playGame);

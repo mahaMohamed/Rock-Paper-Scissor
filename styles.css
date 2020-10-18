@@ -1,6 +1,11 @@
 
 @font-face { font-family: Game; src: url('game_font_7.ttf'); } 
+@font-face { font-family: Player; src: url('TrulyMadlyDpad-a72o.ttf'); } 
+@font-face { font-family: Player2; src: url('PrintClearly-GGP.ttf'); } 
 
+
+body{
+    background-color: #fcfcfc;}
 
 .play-buttons{
     display: flex;
@@ -13,10 +18,10 @@
     align-self: flex-end;
   
 }
-img{
+.play-buttons img{
 
-    width: 150px; 
-    height: 150px; 
+    width: 100px; 
+    height: 100px; 
     margin: 20px;
     padding: 20px;
     transition: transform .2s;
@@ -27,12 +32,21 @@ img{
 h1{
     font-family: Game;
     font-weight: bold;
-    font-size: 50px;
     text-align: center;
     color: #4e6470;
+    font-size: 30px;
 }
 
-img:hover{
+
+h2 {
+    font-family: Player2;
+    font-weight: thin;
+    text-align: center;
+    color: #73737a;
+    font-size: 30px;
+}
+
+.play-buttons img:hover{
     transform: scale(1.25);
     filter: brightness(105%)
     /* opacity: .5; */
@@ -46,4 +60,65 @@ img:hover{
     flex-direction: column;
     /* background-color: blue; */
 
+}
+
+
+
+.players{
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 50%;
+    /* background-color: blue; */
+    justify-content: space-around;
+
+
+
+}
+
+
+.moves{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 60%;
+    margin: auto; 
+    height: 170;
+    /* opacity: 0;     */
+    /* background-color: blue; */
+}
+
+.score{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 50%;
+    margin: auto; 
+    height: 100px;
+    /* background-color: blue; */
+}
+
+.moves img{
+    width: 150px; 
+    height: 150px; 
+    margin: 20px;
+    padding: 20px;
+    /* opacity: 0; */
+}
+
+
+.message-board{
+
+    height: 50px;
+    font-family: Player2;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+    color: #4e6470;;
+    font-size: 30px;
+    width: 50%;
+    margin: auto;
+    position: relative;
+    right: 20px;
 }

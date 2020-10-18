@@ -19,29 +19,45 @@
 
     <div class="game-container">
 
-    
-    <h1> Rock, Paper, Scissor</h1>
 
-   
+        <h1 style="font-size: 50px"> Rock, Paper, Scissor</h1>
+
+
         <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> -->
 
 
-    <!-- </div> -->
+      
 
-    <div id="player-move"></div>
-    <div id="computer-move"></div>
-    <div id="round-result"></div>
-    <div id="computer-Score"></div>
-    <div id="player-score"></div>
-    <div id="final-result"></div>
 
-    <div class = "play-buttons">
-        <img src="rock.png" id="rock">
-        <img src="paper.png" id="paper">
-        <img src ="scissor.png" id="scissor">
-</div>
+        <div class="players">
+            <h2>You   </h2>
+            <h2> vs </h2>
+            <h2>Computer</h2>
+        </div>
 
-<script src="script.js"></script>
+        <div class="moves">
+            <img src="question-mark.png" id="player-move">
+            <img src="question-mark.png" id="computer-move">
+
+        </div>
+
+        <div class="score">
+            <h2 id="player-score" style="margin-right: 5px;  position: relative; right: 20px;"> 0 </h2>
+            <h2 id="separator" style=" position: relative; right: 20px;">|</h2>
+            <h2 id="computer-score" style="margin-left: 5px; position: relative; right: 20px;"> 0 </h2>
+        </div>
+
+        <div class="message-board">
+            First to win 5 rounds wins the game!
+        </div>
+        <div class="play-buttons">
+            <img src="rock.png" id="rock">
+            <img src="paper.png" id="paper">
+            <img src="scissor.png" id="scissor">
+        </div>
+
+
+        <script src="script.js"></script>
 
 </body>
 
