@@ -35,7 +35,7 @@ function playGame(e) {
     console.log(computerSelection);
     computerMove.style = "opacity: 0";
 
-
+/*e*/ 
 
     let computerImage = computerSelection + ".png";
     computerMove.setAttribute("src", computerImage);
